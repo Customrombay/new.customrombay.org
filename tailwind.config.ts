@@ -16,5 +16,10 @@ const config: Config = {
     },
   },
   plugins: [],
+  variants: {
+    extend: {
+        typography: ["dark"],
+    },
+  },
 }
 export default config
