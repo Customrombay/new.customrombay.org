@@ -12,9 +12,8 @@ export async function GET(request: NextRequest) {
         return NextResponse.json(parse(words))
     }
     else if (command == "getListOfDevices") {
-        var listOfFiles = fs.readdirSync("/opt/customrombay/database/phone_data/")
-        console.log(listOfFiles)
-        return NextResponse.json(listOfFiles)
+        var listOfDevices = fs.readFileSync("/opt/customrombay/database/main.yaml", "utf-8")
+        return NextResponse.json(parse(listOfDevices))
     }
     else if (command == "getDeviceImage") {
         var deviceName = headers.get("devicename")

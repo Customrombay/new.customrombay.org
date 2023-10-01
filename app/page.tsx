@@ -30,9 +30,9 @@ export default function Home() {
           <h2 className="text-3xl font-bold lg:text-5xl mx-5 text-center">Popular devices</h2>
         </div>
         <div className="container p-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between">
-          <DeviceView deviceName="xiaomi-beryllium"></DeviceView>
-          <DeviceView deviceName="xiaomi-apollo"></DeviceView>
-          <DeviceView deviceName="xiaomi-alioth"></DeviceView>
+          <DeviceView deviceModelName='Poco F1' deviceVendor='Xiaomi' deviceName="xiaomi-beryllium"></DeviceView>
+          <DeviceView deviceModelName='Poco F1' deviceVendor='Xiaomi' deviceName="xiaomi-apollo"></DeviceView>
+          <DeviceView deviceModelName='Poco F1' deviceVendor='Xiaomi' deviceName="xiaomi-alioth"></DeviceView>
         </div>
       </div>
     </main>

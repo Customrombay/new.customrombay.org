@@ -1,11 +1,9 @@
 import {getDeviceInfo} from "../tools/get_device_info"
 
-export default async function DeviceView({deviceName} : {deviceName: string}) {
-    var deviceInfo = await getDeviceInfo(deviceName)
+export default async function DeviceView({deviceName, deviceVendor, deviceModelName} : {deviceName: string, deviceVendor: string, deviceModelName: string}) {
+    // var deviceInfo = await getDeviceInfo(deviceName)
     console.log(deviceName)
     // var deviceName: string = deviceInfo["device-name"]
-    var deviceVendor: string = deviceInfo["device-vendor"]
-    var deviceModelName: string = deviceInfo["device-model-name"]
     return (
     <div className="p-2">
         <a href={`/${deviceName}/`}>
