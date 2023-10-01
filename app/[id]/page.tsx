@@ -1,15 +1,11 @@
-async function getDeviceDetails(deviceName: string) {
-  const res = await fetch(`http://localhost:3000/api/`, { next: { revalidate: 60 }, headers: {"devicename" : deviceName} })
-  return res.json()
-}
-
+import {getDeviceInfo} from "../tools/get_device_info"
 
 export default async function ProductDetail({
   params,
 }: {
   params: { id: string };
 }) {
-  var deviceDetails = await getDeviceDetails(params.id)
+  var deviceDetails = await getDeviceInfo(params.id)
   var deviceName: string = deviceDetails["device-name"]
   var deviceVendor: string = deviceDetails["device-vendor"]
   var deviceModelName: string = deviceDetails["device-model-name"]
