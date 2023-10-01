@@ -22,6 +22,9 @@ export async function GET(request: NextRequest) {
         const bytes = fs.readFileSync(`/opt/customrombay/database/device_images/medium/${deviceName}.webp`)
         return NextResponse.json(bytes)
     }
+    else {
+        return NextResponse.json("Hello world")
+    }
     // console.log(words)
 
     // console.log("OK XDDD")
