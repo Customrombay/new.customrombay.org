@@ -3,10 +3,6 @@ import {getListOfDevices} from "../tools/get_list_of_devices"
 
 export default async function Home() {
     var listOfDevices = await getListOfDevices()
-    var format = ""
-    for (var iii in listOfDevices) {
-        format += listOfDevices[iii] + "\n"
-    }
 
     return (
         <main className="pt-24 pb-24">
