@@ -1,5 +1,5 @@
 export async function getListOfDevices() {
-    const res = await fetch(`https://customrombay.org/api/`, { next: { revalidate: 5 }, headers: 
+    const res = await fetch(`https://new.customrombay.org/api/`, { next: { revalidate: 5 }, headers: 
     {
       "command" : "getListOfDevices",  
     }
