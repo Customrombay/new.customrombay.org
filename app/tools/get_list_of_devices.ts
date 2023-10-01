@@ -4,7 +4,7 @@ export async function getListOfDevices() {
       "command" : "getListOfDevices",  
     }
     })
-    // var content = res.json()
-    // console.log(content)
-    return res.json()
+    var content = res.json()
+    console.log(content)
+    return content
 }
