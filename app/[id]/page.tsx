@@ -9,7 +9,7 @@ export default async function ProductDetail({
   if (deviceDetails == null) {
     return (
       <main className="relative flex flex-col">
-        <article className="mx-auto mt-16 mb-8 px-4">
+        <article className="prose lg:prose-lg dark:prose-dark mx-auto mt-16 mb-8 px-4">
           <h1 className="text-5xl font-bold mb-8">404 Not found</h1>
           <p className="text-xl font-bold mb-8">Oh no...</p>
         </article>
@@ -23,7 +23,7 @@ export default async function ProductDetail({
   // console.log(deviceDetails)
   return (
     <main className="relative flex flex-col">
-      <article className="mx-auto mt-16 mb-8 px-4">
+      <article className="prose lg:prose-lg dark:prose-dark mx-auto mt-16 mb-8 px-4">
         <h1 className="text-5xl font-bold mb-8">{deviceVendor} {deviceModelName} ({deviceName})</h1>
         <p className="text-xl font-bold mb-8">{deviceDescription}</p>
         <h2 className="text-3xl font-bold mb-8">Custom ROMs</h2>
