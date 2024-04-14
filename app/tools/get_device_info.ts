@@ -1,5 +1,6 @@
 import { Device } from "./entities/device"
 import { RomForDevice } from "./entities/rom_for_device";
+import { DeviceSpecs } from "./entities/device_specs";
 
 export async function getDeviceInfo(deviceName: string): Promise<Device | null> {
   const res = await fetch(`http://localhost:3001/api/`, { next: { revalidate: 10 }, headers: 
@@ -17,7 +18,7 @@ export async function getDeviceInfo(deviceName: string): Promise<Device | null> 
       toReturn["device-vendor" as keyof object],
       toReturn["device-model-name" as keyof object],
       toReturn["device-description" as keyof object],
-      null,
+      getDeviceSpecs(toReturn),
       getListOfRomsForDevice(toReturn) ?? [],
       [],
       [],
@@ -45,6 +46,26 @@ function getListOfRomsForDevice(toReturn: object): Array<RomForDevice> | null {
       );
     }
     return listOfRoms;
+  }
+  return null;
+}
+
+function getDeviceSpecs(toReturn: object): DeviceSpecs | null {
+  var readSpecs: object | null = toReturn["specs" as keyof object];
+  if (readSpecs != null && readSpecs != undefined) {
+    var specs: DeviceSpecs = new DeviceSpecs(
+      readSpecs["soc" as keyof object],
+      readSpecs["gpu" as keyof object],
+      readSpecs["ram" as keyof object],
+      readSpecs["storage" as keyof object],
+      readSpecs["is_ab_device" as keyof object],
+      readSpecs["screen" as keyof object],
+      readSpecs["battery" as keyof object],
+      readSpecs["network" as keyof object],
+      readSpecs["peripherals" as keyof object],
+      readSpecs["release" as keyof object],
+    );
+    return specs;
   }
   return null;
 }
