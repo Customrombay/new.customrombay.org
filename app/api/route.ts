@@ -8,8 +8,11 @@ export async function GET(request: NextRequest) {
     if (command == "getDeviceInfo") {
         var deviceName = headers.get("devicename")
         console.log(deviceName)
-        const words = fs.readFileSync(`/opt/customrombay/database/phone_data/${deviceName}.yaml`, 'utf-8');
-        return NextResponse.json(parse(words))
+        if (fs.existsSync(`/opt/customrombay/database/phone_data/${deviceName}.yaml`)) {
+            const words = fs.readFileSync(`/opt/customrombay/database/phone_data/${deviceName}.yaml`, 'utf-8');
+            return NextResponse.json(parse(words))
+        }
+        return NextResponse.json(null)
     }
     else if (command == "getListOfDevices") {
         var listOfDevices = fs.readFileSync("/opt/customrombay/database/main.yaml", "utf-8")
